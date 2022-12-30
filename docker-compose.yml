@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  valheim-server:
+    image: "lloesche/valheim-server"
+    container_name: "valheim-server"
+    restart: always
+    cap_add:
+      - "sys_nice"
+    environment:
+      - "SERVER_NAME=${SERVER_NAME}"
+      - "SERVER_PASS=${SERVER_PASS}"
+      - "SERVER_PUBLIC=${SERVER_PUBLIC}"
+      - "STATUS_HTTP=${STATUS_HTTP}"
+      - "ADMINLIST_IDS=${ADMINLIST_IDS}"
+      - "BANNEDLIST_IDS=${BANNEDLIST_IDS}"
+      - "WORLD_NAME=${WORLD_NAME}"
+    volumes:
+      # - "./config:/config"
+      - "./data:/opt/valheim"
+    ports:
+      - "2456-2457:2456-2457/udp"
