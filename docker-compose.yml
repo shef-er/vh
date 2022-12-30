@@ -19,4 +19,5 @@ services:
       # - "./config:/config"
       - "./data:/opt/valheim"
     ports:
-      - "2456-2457:2456-2457/udp"
+      - "2456:2456/udp"
+      - "2457:2457/udp"
